@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fact.MainStageController">
+   <children>
+      <VBox fx:id="mainvbox" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #212F3D;" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="1.0" left="2.0" right="1.0" top="2.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../icon/fileComp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="FILE AUTO COMPARISION TOOL" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="4.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #17202A;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Feed Name : " textFill="#00ff90">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="feedFilename" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="Test" textAlignment="CENTER" textFill="#00ff90" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </HBox.margin>
+                        </Separator>
+                        <Label text="Status : " textFill="#00f1ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                        <Label fx:id="connstatus" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="Unknown" textAlignment="CENTER" textFill="#00f1ff" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="4.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" />
+                        <Label text="Refresh Rate :  " textFill="#87b5ff">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="refreshrate" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="30 Sec" textAlignment="CENTER" textFill="#87b5ff" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </HBox.margin>
+                        </Separator>
+                        <Label fx:id="datetime" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="Date &amp; Time :" textAlignment="CENTER" textFill="#95ff00" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </HBox.margin>
+                        </Separator>
+                        <Button id="dark-blue_connect" fx:id="connectbt" mnemonicParsing="false" onAction="#statusProcess" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button id="dark-blue_file" fx:id="fileconfgbt" layoutX="241.0" layoutY="18.0" mnemonicParsing="false" onAction="#loadStatusFiles" stylesheets="@../css/main_stage.css" />
+                        <Button id="dark-blue_settings" fx:id="confgbt" mnemonicParsing="false" onAction="#confgPropFile" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="480.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane fx:id="workspace" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets top="1.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
