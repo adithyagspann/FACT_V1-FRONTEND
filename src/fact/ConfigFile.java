@@ -103,17 +103,19 @@ public class ConfigFile {
 
         statusFileLoad.setOnAction((ActionEvent event) -> {
 
-            String fname = "";
-            String fpath = "";
+         
             try {
 
                 Stage mainstage = (Stage) mainvbox.getScene().getWindow();
                 File dirName = directoryChooser.showDialog(mainstage);
                 FileReader fr = null;
-                fname = file.getAbsoluteFile().getName();
-                fpath = file.getAbsoluteFile().getAbsolutePath();
+         
+                statusPath.setText(dirName.getAbsolutePath());
+
+          
             } catch (Exception ex) {
 //                 new ExceptionUI(ex);
+                ex.printStackTrace();
             }
 
         });
@@ -208,7 +210,7 @@ public class ConfigFile {
                 pfw.setTimeFormat(timeFormat.getText());
                 pfw.setTimeZone(timeZone.getText());
 
-                pfw.storeUpdate();
+//                pfw.storeUpdate();
                 System.out.println("Completed");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(ConfigFile.class.getName()).log(Level.SEVERE, null, ex);

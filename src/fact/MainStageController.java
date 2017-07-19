@@ -207,7 +207,9 @@ public class MainStageController implements Initializable {
             if (!feedStatus) {
 
                 feedStatus = true;
-                csc.processData(statusProperties);
+                if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty()) {
+                    csc.processData(statusProperties);
+                }
                 buttonUIIndicator(connectbt, "/icon/connect.png", "/icon/disconnect50x50.png", "glow");
                 confgbt.setDisable(true);
                 fileconfgbt.setDisable(true);
@@ -216,12 +218,15 @@ public class MainStageController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         System.out.println("This is called every 30 seconds on UI thread");
-                        csc.processData(statusProperties);
+                        if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty()) {
+                            csc.processData(statusProperties);
+                        }
                     }
                 }));
 
                 statusFetch.setCycleCount(Timeline.INDEFINITE);
                 statusFetch.play();
+
             } else {
                 feedStatus = false;
 //                csc.stopFetch();
