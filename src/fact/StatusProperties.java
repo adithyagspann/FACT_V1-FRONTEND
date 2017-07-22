@@ -16,32 +16,41 @@ import java.util.Properties;
  */
 public class StatusProperties {
 
-    private String srcDiffCount, originalTrgFile, feedName, oldModTime, newModTime, status, trgDiffCount, originalSrcFile, srcCount, trgCount, diffFile;
+    private String newDiffCount, originalNewFile, feedName, oldModTime, newModTime, status, oldDiffCount, originalOldFile, newCount, oldCount, diffFile, connFile, mailFile;
 
     public StatusProperties(String statusFile) throws FileNotFoundException, IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream(statusFile));
 
-        srcDiffCount = properties.getProperty("srcDiffCount");
-        originalTrgFile = properties.getProperty("originalTrgFile");
+        newDiffCount = properties.getProperty("newDiffCount");
+        originalOldFile = properties.getProperty("originalOldFile");
         feedName = properties.getProperty("feedName");
         oldModTime = properties.getProperty("oldModTime");
         newModTime = properties.getProperty("newModTime");
         status = properties.getProperty("status");
-        trgDiffCount = properties.getProperty("trgDiffCount");
-        originalSrcFile = properties.getProperty("originalSrcFile");
-        srcCount = properties.getProperty("srcCount");
-        trgCount = properties.getProperty("trgCount");
+        oldDiffCount = properties.getProperty("oldDiffCount");
+        originalNewFile = properties.getProperty("originalNewFile");
+        newCount = properties.getProperty("newCount");
+        oldCount = properties.getProperty("oldCount");
         diffFile = properties.getProperty("diffFile");
-
+        connFile = properties.getProperty("connFile");
+        mailFile = properties.getProperty("mailConfig");
     }
 
-    public String getSrcDiffCount() {
-        return srcDiffCount;
+    public String getMailFile() {
+        return mailFile;
     }
 
-    public String getOriginalTrgFile() {
-        return originalTrgFile;
+    public String getConnFile() {
+        return connFile;
+    }
+
+    public String getNewDiffCount() {
+        return newDiffCount;
+    }
+
+    public String getOriginalOldFile() {
+        return originalOldFile;
     }
 
     public String getFeedName() {
@@ -60,20 +69,20 @@ public class StatusProperties {
         return status;
     }
 
-    public String getTrgDiffCount() {
-        return trgDiffCount;
+    public String getOldDiffCount() {
+        return oldDiffCount;
     }
 
-    public String getOriginalSrcFile() {
-        return originalSrcFile;
+    public String getOriginalNewFile() {
+        return originalNewFile;
     }
 
-    public String getSrcCount() {
-        return srcCount;
+    public String getOldCount() {
+        return oldCount;
     }
 
-    public String getTrgCount() {
-        return trgCount;
+    public String getNewCount() {
+        return newCount;
     }
 
     public String getDiffFile() {

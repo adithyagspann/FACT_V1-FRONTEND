@@ -45,7 +45,7 @@ public class MainStageController implements Initializable {
     @FXML
     private AnchorPane root_anchr_pane, workspace;
     @FXML
-    private Label datetime, feedFilename, refreshrate, connstatus;
+    private Label datetime, feedFilename, refreshrate, feedstatus;
     @FXML
     private VBox mainvbox;
     //FXML Properties Stop
@@ -137,6 +137,13 @@ public class MainStageController implements Initializable {
         dateTimeDisplay.play();
 
         refreshrate.setText(propFile.getFetchTime() + " sec");
+
+        if (!propFile.getStatusPath().isEmpty()) {
+            statusProperties = new StatusProperties(propFile.getStatusPath());
+            feedFilename.setText(statusProperties.getFeedName());
+            feedstatus.setText(statusProperties.getStatus());
+            connectbt.setDisable(false);
+        }
     }
 
     /*
@@ -159,11 +166,12 @@ public class MainStageController implements Initializable {
         System.out.println(configFiles.getStatusFile());
         String filePath = configFiles.getStatusFile();
         if (filePath != null) {
-            statusProperties = new StatusProperties(filePath);
+            if (statusProperties != null) {
+                statusProperties = new StatusProperties(filePath);
+            }
             feedFilename.setText(statusProperties.getFeedName());
-            connstatus.setText(statusProperties.getStatus());
+            feedstatus.setText(statusProperties.getStatus());
             connectbt.setDisable(false);
-
         }
     }
 
@@ -173,6 +181,10 @@ public class MainStageController implements Initializable {
     @FXML
     public void confgPropFile(ActionEvent ae) throws IOException {
         ConfigFile cf = new ConfigFile(mainvbox, pfw);
+        if (!pfw.getStatusPath().isEmpty()) {
+            feedFilename.setText(statusProperties.getFeedName());
+            feedstatus.setText(statusProperties.getStatus());
+        }
 
     }
 
@@ -212,7 +224,7 @@ public class MainStageController implements Initializable {
                 }
                 buttonUIIndicator(connectbt, "/icon/connect.png", "/icon/disconnect50x50.png", "glow");
                 confgbt.setDisable(true);
-                fileconfgbt.setDisable(true);
+//                fileconfgbt.setDisable(true);
                 statusFetch = new Timeline(new KeyFrame(Duration.seconds(Integer.valueOf(pfw.getFetchTime())), new EventHandler<ActionEvent>() {
 
                     @Override
@@ -232,7 +244,7 @@ public class MainStageController implements Initializable {
 //                csc.stopFetch();
                 statusFetch.stop();
                 confgbt.setDisable(false);
-                fileconfgbt.setDisable(false);
+//                fileconfgbt.setDisable(false);
                 buttonUIIndicator(connectbt, "/icon/connect.png", "/icon/disconnect50x50.png", "off");
             }
         } catch (Exception ex) {

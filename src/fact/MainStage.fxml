@@ -20,12 +20,12 @@
                         <Insets bottom="1.0" left="2.0" right="1.0" top="2.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../icon/fileComp.png" />
+                        <Image url="@../icon/fact_icon.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="FILE AUTO COMPARISION TOOL" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets bottom="2.0" left="4.0" right="2.0" top="2.0" />
@@ -33,8 +33,11 @@
                   </Label>
                   <Separator opacity="0.4" orientation="VERTICAL" prefHeight="200.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets bottom="2.0" top="2.0" />
+                        <Insets bottom="2.0" left="2.0" right="-2.0" top="2.0" />
                      </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                   </Separator>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #17202A;" HBox.hgrow="ALWAYS">
                      <children>
@@ -60,7 +63,7 @@
                            <font>
                               <Font size="14.0" />
                            </font></Label>
-                        <Label fx:id="connstatus" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="Unknown" textAlignment="CENTER" textFill="#00f1ff" HBox.hgrow="ALWAYS">
+                        <Label fx:id="feedstatus" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" text="Unknown" textAlignment="CENTER" textFill="#00f1ff" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -100,13 +103,12 @@
                               <Insets bottom="2.0" top="2.0" />
                            </HBox.margin>
                         </Separator>
-                        <Button id="dark-blue_connect" fx:id="connectbt" mnemonicParsing="false" onAction="#statusProcess" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
+                        <Button id="dark-blue_settings" fx:id="confgbt" mnemonicParsing="false" onAction="#confgPropFile" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </HBox.margin>
                         </Button>
-                        <Button id="dark-blue_file" fx:id="fileconfgbt" layoutX="241.0" layoutY="18.0" mnemonicParsing="false" onAction="#loadStatusFiles" stylesheets="@../css/main_stage.css" />
-                        <Button id="dark-blue_settings" fx:id="confgbt" mnemonicParsing="false" onAction="#confgPropFile" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
+                        <Button id="dark-blue_connect" fx:id="connectbt" mnemonicParsing="false" onAction="#statusProcess" stylesheets="@../css/main_stage.css" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </HBox.margin>
@@ -115,6 +117,9 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                   </HBox>
                </children>
                <VBox.margin>

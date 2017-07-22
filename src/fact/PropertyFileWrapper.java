@@ -26,10 +26,6 @@ public class PropertyFileWrapper {
         this.fileName = fileName;
         commonProp = new Properties();
         commonProp.load(new FileInputStream(fileName));
-        timeZone = commonProp.getProperty("timeZone");
-        timeFormat = commonProp.getProperty("timeFormat");
-        statusPath = commonProp.getProperty("statusPath");
-        fetchTime = commonProp.getProperty("fetchTime");
 
     }
 
@@ -49,33 +45,35 @@ public class PropertyFileWrapper {
         return commonProp.getProperty("statusPath");
     }
 
-    public void setTimeZone(String timeZone) throws FileNotFoundException {
+    public void setTimeZone(String timeZone) {
         commonProp.setProperty("timeZone", timeZone);
 
-        commonProp.save(new FileOutputStream(fileName), new Date().toString());
+//        commonProp.save(new FileOutputStream(fileName), new Date().toString());
         System.out.println("timeZone: " + commonProp.getProperty("timeZone"));
     }
 
-    public void setTimeFormat(String timeFormat) throws FileNotFoundException {
+    public void setTimeFormat(String timeFormat) {
         commonProp.setProperty("timeFormat", timeFormat);
-        commonProp.save(new FileOutputStream(fileName), new Date().toString());
+//        commonProp.save(new FileOutputStream(fileName), new Date().toString());
         System.out.println("timeFormat: " + commonProp.getProperty("timeFormat"));
     }
 
-    public void setStatusPath(String statusPath) throws FileNotFoundException {
+    public void setStatusPath(String statusPath) {
         commonProp.setProperty("statusPath", statusPath);
-        commonProp.save(new FileOutputStream(fileName), new Date().toString());
+//        commonProp.save(new FileOutputStream(fileName), new Date().toString());
         System.out.println("statusPath: " + commonProp.getProperty("statusPath"));
     }
 
-    public void setFetchTime(String fetchTime) throws FileNotFoundException {
+    public void setFetchTime(String fetchTime) {
         commonProp.setProperty("fetchTime", fetchTime);
-        commonProp.save(new FileOutputStream(fileName), new Date().toString());
+//        commonProp.save(new FileOutputStream(fileName), new Date().toString());
         System.out.println("fetchTime: " + commonProp.getProperty("fetchTime"));
     }
 
     public void storeUpdate() throws FileNotFoundException {
+
         commonProp.save(new FileOutputStream(fileName), new Date().toString());
+
     }
 
 }

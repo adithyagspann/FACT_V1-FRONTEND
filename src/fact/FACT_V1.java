@@ -27,7 +27,7 @@ public class FACT_V1 extends Application {
     public void start(Stage stage) throws Exception {
     this.mainStage=stage;
     mainStage.setTitle("FACT - File Auto Comparision Tool");
-    mainStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon/fileComp.png")));
+    mainStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon/fact_icon.png")));
     mainStage.resizableProperty().setValue(Boolean.TRUE);
     mainStage.setMaximized(true);
 

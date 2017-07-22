@@ -78,10 +78,10 @@ public class CurrentStatusController implements Initializable {
                 Platform.runLater(new Runnable() {
                     public void run() {
                         //ui code
-                        src_cnt_lbl.setText(statusProperties.getSrcCount());
-                        trg_cnt_lbl.setText(statusProperties.getTrgCount());
-                        src_unm_cnt_lbl.setText(statusProperties.getSrcDiffCount());
-                        trg_unm_cnt_lbl.setText(statusProperties.getTrgDiffCount());
+                        src_cnt_lbl.setText(statusProperties.getNewCount());
+                        trg_cnt_lbl.setText(statusProperties.getOldCount());
+                        src_unm_cnt_lbl.setText(statusProperties.getNewDiffCount());
+                        trg_unm_cnt_lbl.setText(statusProperties.getOldDiffCount());
                         clearTableData();
                         setTableCol(src_unm_tbl_view, loadExcel.getColName(statusProperties.getNewModTime()));
                         setTableCol(trg_unm_tbl_view, loadExcel.getColName(statusProperties.getOldModTime()));
@@ -89,8 +89,6 @@ public class CurrentStatusController implements Initializable {
                         trg_unm_tbl_view.getItems().addAll(trgData);
                     }
                 });
-
-               
 
                 return null;
             }
@@ -170,5 +168,4 @@ public class CurrentStatusController implements Initializable {
 //    public void stopFetch() {
 //        statusFetch.stop();
 //    }
-
 }

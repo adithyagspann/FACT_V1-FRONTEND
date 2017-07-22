@@ -19,16 +19,21 @@
          <children>
             <VBox prefHeight="398.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #696969;" text="Total Summay" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                   <HBox prefHeight="120.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: green;" text="Source Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: #6495ED;" text="New File Total Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                                  </VBox.margin>
                                  <font>
-                                    <Font name="System Bold" size="19.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <padding>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -46,9 +51,9 @@
                         </VBox>
                         <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: green;" text="Target Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: #6495ED;" text="Old File Total Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="19.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <padding>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -69,9 +74,9 @@
                         </VBox>
                         <VBox layoutX="502.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: Red;" text="Source Unmatched Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: red;" text="New File Unmatched Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="19.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <padding>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -92,9 +97,9 @@
                         </VBox>
                         <VBox layoutX="502.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: red;" text="Target Unmatched Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-border-style: solid; -fx-background-color: red;" text="Old File Unmatched Count" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="19.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <padding>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -115,18 +120,18 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Unmatched Records" textAlignment="CENTER" textFill="#402323" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #696969;" text="Unmatched Records in Old and New Files" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <HBox VBox.vgrow="ALWAYS">
                      <children>
                         <VBox HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" text="Source Data" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" text="New File" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="20.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -140,9 +145,9 @@
                         </VBox>
                         <VBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" text="Target Data" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: red;" text="Old File" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="20.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -157,6 +162,9 @@
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets bottom="-2.0" left="-2.0" right="-2.0" top="-2.0" />
+               </padding>
             </VBox>
          </children>
       </AnchorPane>
