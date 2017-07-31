@@ -8,6 +8,9 @@ package fact;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -182,45 +185,22 @@ public class MainStageController implements Initializable {
     public void confgPropFile(ActionEvent ae) throws IOException {
         ConfigFile cf = new ConfigFile(mainvbox, pfw);
         if (!pfw.getStatusPath().isEmpty()) {
+            statusProperties = new StatusProperties(pfw.getStatusPath());
             feedFilename.setText(statusProperties.getFeedName());
             feedstatus.setText(statusProperties.getStatus());
+            refreshrate.setText(pfw.getFetchTime());
         }
 
-    }
-
-    /*
-    Configuraiton of Connect Button
-     */
-    public boolean connectConfig(String feedName) throws FileNotFoundException, IOException {
-//        Properties checkDefault = new Properties();
-//        checkDefault.load(new FileInputStream("conn/" + feedName + ".properties"));
-//        String defaultFeed = pfw.getProperties().getProperty("defaultFile");
-//        if (defaultFeed != null) {
-//            if (!defaultFeed.isEmpty() && (defaultFeed.equalsIgnoreCase("conn/" + feedName + ".properties"))) {
-//
-//                if (Files.exists(Paths.get(checkDefault.getProperty("defaultFile")), LinkOption.NOFOLLOW_LINKS)) {
-//                    connectbt.setDisable(false);
-//                    return true;
-//                } else {
-//                    connectbt.setDisable(true);
-//                }
-//            } else {
-//                connectbt.setDisable(true);
-//            }
-//        } else {
-//            connectbt.setDisable(true);
-//        }
-        return false;
     }
 
     @FXML
     public void statusProcess(ActionEvent ae) {
         try {
             if (!feedStatus) {
-
+                StatusProperties sp = new StatusProperties(pfw.getStatusPath());
                 feedStatus = true;
-                if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty()) {
-                    csc.processData(statusProperties);
+                if (sp.getDiffFile() != null && !sp.getDiffFile().isEmpty() && Files.exists(Paths.get(sp.getDiffFile()), LinkOption.NOFOLLOW_LINKS)) {
+                    csc.processData(sp);
                 }
                 buttonUIIndicator(connectbt, "/icon/connect.png", "/icon/disconnect50x50.png", "glow");
                 confgbt.setDisable(true);
@@ -229,9 +209,19 @@ public class MainStageController implements Initializable {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        System.out.println("This is called every 30 seconds on UI thread");
-                        if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty()) {
-                            csc.processData(statusProperties);
+                        try {
+                            StatusProperties sp1 = new StatusProperties(pfw.getStatusPath());
+                            System.out.println("This is called every " + pfw.getFetchTime() + " seconds on UI thread");
+                            feedstatus.setText(sp1.getStatus());
+
+                            if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty() && Files.exists(Paths.get(sp.getDiffFile()), LinkOption.NOFOLLOW_LINKS)) {
+                                csc.processData(sp1);
+                            } else {
+                                System.out.println("New Diff File not created");
+                            }
+                        } catch (IOException ex) {
+                            Logger.getLogger(MainStageController.class.getName()).log(Level.SEVERE, null, ex);
+                            new ExceptionUI(ex);
                         }
                     }
                 }));

@@ -37,7 +37,7 @@ public class LoadExcel {
         System.out.println("getExcelData called");
         workSheet = excelFile.getSheet(getSheetName(timeStamp));
 
-        
+        System.out.println("Sheet Name: " + workSheet.getName());
         ObservableList data = FXCollections.observableArrayList();
         for (int row = 1; row < workSheet.getRows(); row++) {
             ObservableList excelData = FXCollections.observableArrayList();
@@ -48,7 +48,7 @@ public class LoadExcel {
 
             data.add(excelData);
         }
-
+        System.out.println("Data Count: " + data.size());
         return data;
     }
 

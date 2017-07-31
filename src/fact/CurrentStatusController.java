@@ -68,7 +68,9 @@ public class CurrentStatusController implements Initializable {
         Task task = new Task<Void>() {
             @Override
             public Void call() throws SQLException, IOException, FileNotFoundException, ClassNotFoundException, BiffException {
+//                StatusProperties statusProperties = new StatusProperties(statusPropertiesFile);
                 System.out.println("Pro: " + statusProperties);
+                System.out.println("Excel File: " + statusProperties.getDiffFile());
                 LoadExcel loadExcel = new LoadExcel(statusProperties.getDiffFile());
 
                 //non ui code

@@ -17,9 +17,10 @@ import java.util.Properties;
 public class StatusProperties {
 
     private String newDiffCount, originalNewFile, feedName, oldModTime, newModTime, status, oldDiffCount, originalOldFile, newCount, oldCount, diffFile, connFile, mailFile;
+    private Properties properties;
 
     public StatusProperties(String statusFile) throws FileNotFoundException, IOException {
-        Properties properties = new Properties();
+        properties = new Properties();
         properties.load(new FileInputStream(statusFile));
 
         newDiffCount = properties.getProperty("newDiffCount");
@@ -82,6 +83,7 @@ public class StatusProperties {
     }
 
     public String getNewCount() {
+        System.out.println("New Count: " + properties.getProperty("newCount"));
         return newCount;
     }
 
