@@ -158,6 +158,29 @@ public class CurrentStatusController implements Initializable {
         trg_unm_tbl_view.getColumns().clear();
     }
 
+    public void clearAllData() {
+        src_cnt_lbl.setText("0");
+        trg_cnt_lbl.setText("0");
+        src_unm_cnt_lbl.setText("0");
+        trg_unm_cnt_lbl.setText("0");
+        if (src_tol_tbl_view != null) {
+            src_tol_tbl_view.getItems().clear();
+            src_tol_tbl_view.getColumns().clear();
+        }
+        if (trg_tol_tbl_view != null) {
+            trg_tol_tbl_view.getItems().clear();
+            trg_tol_tbl_view.getColumns().clear();
+        }
+        if (src_unm_tbl_view != null) {
+            src_unm_tbl_view.getItems().clear();
+            src_unm_tbl_view.getColumns().clear();
+        }
+        if (trg_unm_tbl_view != null) {
+            trg_unm_tbl_view.getItems().clear();
+            trg_unm_tbl_view.getColumns().clear();
+        }
+    }
+
     private void setTableData(List columnName) throws IOException {
 
 //        setTableCol(src_tol_tbl_view, columnName);

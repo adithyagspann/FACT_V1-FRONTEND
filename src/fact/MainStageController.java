@@ -189,6 +189,8 @@ public class MainStageController implements Initializable {
             feedFilename.setText(statusProperties.getFeedName());
             feedstatus.setText(statusProperties.getStatus());
             refreshrate.setText(pfw.getFetchTime());
+            connectbt.setDisable(false);
+            csc.clearAllData();
         }
 
     }
@@ -213,8 +215,9 @@ public class MainStageController implements Initializable {
                             StatusProperties sp1 = new StatusProperties(pfw.getStatusPath());
                             System.out.println("This is called every " + pfw.getFetchTime() + " seconds on UI thread");
                             feedstatus.setText(sp1.getStatus());
-
-                            if (statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty() && Files.exists(Paths.get(sp.getDiffFile()), LinkOption.NOFOLLOW_LINKS)) {
+                            System.out.println("Excel Sheet: " + sp1.getDiffFile());
+//                            System.out.println(statusProperties.getDiffFile() != null && !statusProperties.getDiffFile().isEmpty() && Files.exists(Paths.get(sp.getDiffFile()), LinkOption.NOFOLLOW_LINKS));
+                            if (sp1.getDiffFile() != null && !sp1.getDiffFile().isEmpty() && Files.exists(Paths.get(sp1.getDiffFile()), LinkOption.NOFOLLOW_LINKS)) {
                                 csc.processData(sp1);
                             } else {
                                 System.out.println("New Diff File not created");
