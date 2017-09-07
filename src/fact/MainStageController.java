@@ -142,10 +142,17 @@ public class MainStageController implements Initializable {
         refreshrate.setText(propFile.getFetchTime() + " sec");
 
         if (!propFile.getStatusPath().isEmpty()) {
-            statusProperties = new StatusProperties(propFile.getStatusPath());
-            feedFilename.setText(statusProperties.getFeedName());
-            feedstatus.setText(statusProperties.getStatus());
-            connectbt.setDisable(false);
+            try {
+                statusProperties = new StatusProperties(propFile.getStatusPath());
+                feedFilename.setText(statusProperties.getFeedName());
+                feedstatus.setText(statusProperties.getStatus());
+                connectbt.setDisable(false);
+            } catch (FileNotFoundException fnfe) {
+                feedFilename.setText("Test");
+                feedstatus.setText("Test");
+                connectbt.setDisable(true);
+                new ExceptionUI(fnfe);
+            }
         }
     }
 
@@ -212,6 +219,7 @@ public class MainStageController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         try {
+
                             StatusProperties sp1 = new StatusProperties(pfw.getStatusPath());
                             System.out.println("This is called every " + pfw.getFetchTime() + " seconds on UI thread");
                             feedstatus.setText(sp1.getStatus());

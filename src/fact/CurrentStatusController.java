@@ -87,6 +87,8 @@ public class CurrentStatusController implements Initializable {
                         clearTableData();
                         setTableCol(src_unm_tbl_view, loadExcel.getColName(statusProperties.getNewModTime()));
                         setTableCol(trg_unm_tbl_view, loadExcel.getColName(statusProperties.getOldModTime()));
+                        src_unm_tbl_view.getItems().clear();
+                        trg_unm_tbl_view.getItems().clear();
                         src_unm_tbl_view.getItems().addAll(srcData);
                         trg_unm_tbl_view.getItems().addAll(trgData);
                     }
